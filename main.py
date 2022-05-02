@@ -4,23 +4,21 @@ from PIL import Image
 
 left, right = st.columns(2)
 
-left.header("Original")
-right.header("Kontrast og skarphet")
+with left:
+    st.header("Christian Salomonsen")
+    st.markdown(
+        """
+        **Welcome to my personal website!** :wave:
 
-@st.cache
-def load_data():
-    img = Image.open('imgs/original.JPG')
-    img2 = Image.open('imgs/sharpened.png')
-    weird1 = Image.open('imgs/segmented_-2_3000.png')
-    weird2 = Image.open('imgs/segmented_-2_5000.png')
+        Check out my links for more information!
 
-    return img, img2, weird1, weird2
+        - [GitHub](https://github.com/salomaestro) :link:
+        - [LinkedIn](linkedin.com/in/christian-salomonsen-932923207) :link:
+        
+        You can also reach me through the following channels:
+        - [Email](mailto:csa047@uit.no) :email:
+        """
+    )
 
-img, img2, weird1, weird2 = load_data()
-
-left.image(img, caption='Johanne tok med Christian til Paris, det var gøy!', use_column_width=True)
-right.image(img2, caption="La på noen filter.", use_column_width=True)
-
-
-left.image(weird1, caption="segmentert comp=10^-2, segmenter=3000", use_column_width=True)
-right.image(weird2, caption="segmentert comp=10^-2, segmenter=5000", use_column_width=True)
+with right:
+    st.image("images/portrett.png")
